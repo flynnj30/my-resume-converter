@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Flynn James Pontino – Senior SDR | Resume</title>
+    <!-- html2pdf for PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js">
+    </script>
+    <!-- FileSaver for downloads -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js">
+    </script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            background: #e8edf3;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Inter", "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ----- TOOLBAR (responsive) ----- */
+        .toolbar-dual {
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto 0.8rem auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 100;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-pdf-dual,
+        .dropdown-btn,
+        .add-exp-btn {
+            font-family: inherit;
+            font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            white-space: nowrap;
+        }
+
+        .btn-pdf-dual,
+        .dropdown-btn {
+            background: linear-gradient(135deg, #1a3a4a, #2c7a6e);
+            border: none;
+            color: white;
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 4px 12px rgba(44, 122, 110, 0.25);
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-pdf-dual:hover,
+        .dropdown-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(44, 122, 110, 0.35);
+        }
+
+        .add-exp-btn {
+            background: #2c7a6e;
+            border: none;
+            color: white;
+            border-radius: 30px;
+            padding: 0.3rem 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+            height: 34px;
+        }
+        .add-exp-btn:hover {
+            background: #1f5f54;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 110%;
+            background: white;
+            min-width: 180px;
+            border-radius: 14px;
+            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+            z-index: 1000;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .dropdown-content.show {
+            display: block;
+            animation: fadeIn 0.2s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dropdown-content .drop-item {
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: clamp(0.7rem, 1vw, 0.85rem);
+            font-family: inherit;
+            color: #1e2f3c;
+            cursor: pointer;
+            transition: 0.15s;
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .dropdown-content .drop-item:hover {
+            background: #f0f7fa;
+        }
+        .dropdown-content .drop-item i {
+            width: 18px;
+            color: #2c7a6e;
+        }
+        .dropdown-content .drop-item .file-ext {
+            font-size: 0.55rem;
+            color: #7a8f9e;
+            margin-left: auto;
+        }
+        .dropdown-content .drop-divider {
+            height: 1px;
+            background: #eef3f2;
+            margin: 0.15rem 0;
+        }
+
+        .ats-score {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(79, 159, 143, 0.1);
+            padding: 0.2rem 0.7rem;
+            border-radius: 40px;
+            border: 1px solid rgba(79, 159, 143, 0.15);
+        }
+        .ats-score .score-value {
+            font-weight: 800;
+            color: #2c7a6e;
+            font-size: clamp(0.7rem, 1vw, 0.85rem);
+        }
+        .ats-score .score-label {
+            font-size: clamp(0.45rem, 0.7vw, 0.55rem);
+            text-transform: uppercase;
+            color: #5a7a8a;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== RESUME CARD (fully responsive) ===== */
+        .dual-resume {
+            max-width: 1100px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            transition: all 0.3s ease;
+        }
+
+        /* ----- LEFT PANEL (dark) ----- */
+        .left-dark {
+            flex: 1 1 280px;
+            background: linear-gradient(160deg, #0f1a2a 0%, #1a2a3f 100%);
+            color: #eef2ff;
+            padding: clamp(1.2rem, 3vw, 2.4rem) clamp(1rem, 2.5vw, 1.8rem);
+            order: 1;
+            position: relative;
+            min-width: 220px;
+        }
+
+        .left-dark::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4f9f8f, #7fc0b2, #4f9f8f);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* ----- RIGHT PANEL (white) ----- */
+        .right-white {
+            flex: 2 1 400px;
+            background: #ffffff;
+            padding: clamp(1.2rem, 3vw, 2.4rem) clamp(1rem, 2.5vw, 2.2rem);
+            order: 2;
+            min-width: 280px;
+        }
+
+        @media (max-width: 700px) {
+            .dual-resume {
+                flex-direction: column;
+                border-radius: 18px;
+            }
+            .left-dark,
+            .right-white {
+                flex: auto;
+                width: 100%;
+                order: 0;
+            }
+            .left-dark::after {
+                height: 3px;
+            }
+            .toolbar-dual {
+                justify-content: center;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .dropdown-content {
+                right: auto;
+                left: 0;
+                min-width: 160px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 0.5rem;
+            }
+            .left-dark {
+                padding: 1rem 0.8rem;
+            }
+            .right-white {
+                padding: 1rem 0.8rem;
+            }
+            .btn-pdf-dual,
+            .dropdown-btn {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.6rem;
+            }
+            .add-exp-btn {
+                height: 30px;
+                font-size: 0.55rem;
+                padding: 0.2rem 0.6rem;
+            }
+            .ats-score .score-value {
+                font-size: 0.65rem;
+            }
+            .ats-score .score-label {
+                font-size: 0.4rem;
+            }
+        }
+
+        /* ===== LEFT PANEL STYLES ===== */
+        .left-dark .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .left-dark .profile-pic {
+            width: clamp(80px, 15vw, 130px);
+            height: clamp(80px, 15vw, 130px);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 3px solid rgba(79, 159, 143, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            color: #6a8f9e;
+            overflow: hidden;
+            margin-bottom: 0.4rem;
+            transition: 0.3s;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .left-dark .profile-pic:hover {
+            border-color: #7fc0b2;
+            transform: scale(1.02);
+        }
+        .left-dark .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .left-dark .pic-upload-btn {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(79, 159, 143, 0.25);
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+            font-weight: 500;
+            font-family: inherit;
+            color: #b7cfc8;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .left-dark .pic-upload-btn:hover {
+            background: rgba(255, 255, 255, 0.14);
+        }
+
+        .value-tagline {
+            text-align: center;
+            font-size: clamp(0.6rem, 0.9vw, 0.75rem);
+            font-weight: 500;
+            color: #9bc4bc;
+            background: rgba(79, 159, 143, 0.12);
+            padding: 0.4rem 0.6rem;
+            border-radius: 40px;
+            margin: 0.3rem 0 0.6rem 0;
+            border: 1px solid rgba(79, 159, 143, 0.15);
+            letter-spacing: 0.3px;
+            width: 100%;
+        }
+        .value-tagline i {
+            margin-right: 4px;
+            color: #4f9f8f;
+        }
+
+        .left-dark .section-title-dark {
+            font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #9bc4bc;
+            margin: 1rem 0 0.6rem 0;
+            border-left: 3px solid #4f9f8f;
+            padding-left: 10px;
+        }
+        .left-dark .section-title-dark:first-of-type {
+            margin-top: 0;
+        }
+
+        .contact-dark-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: clamp(0.6rem, 0.85vw, 0.72rem);
+            font-weight: 400;
+            margin-bottom: 0.4rem;
+            color: #cfdfda;
+            word-break: break-word;
+            transition: 0.2s;
+            padding: 0.15rem 0.4rem;
+            border-radius: 8px;
+        }
+        .contact-dark-item:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .contact-dark-item i {
+            width: 18px;
+            color: #4f9f8f;
+            font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+            flex-shrink: 0;
+        }
+
+        .skill-tag-dark {
+            background: rgba(255, 255, 255, 0.07);
+            display: inline-block;
+            padding: 0.15rem 0.7rem;
+            border-radius: 40px;
+            font-size: clamp(0.55rem, 0.75vw, 0.7rem);
+            font-weight: 400;
+            color: #eef3f1;
+            margin: 0.15rem 0.15rem;
+            transition: 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        .skill-tag-dark:hover {
+            background: rgba(79, 159, 143, 0.2);
+        }
+
+        .edu-dark {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 14px;
+            padding: 0.5rem 0.8rem;
+            margin-top: 0.2rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .edu-degree-dark {
+            font-weight: 700;
+            font-size: clamp(0.65rem, 0.9vw, 0.8rem);
+            color: #d9f0ea;
+        }
+        .edu-date-dark {
+            font-size: clamp(0.5rem, 0.7vw, 0.65rem);
+            color: #90b7ae;
+        }
+
+        .kr-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem;
+        }
+        .kr-dark {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 0.4rem 0.5rem;
+            border: 1px solid rgba(79, 159, 143, 0.12);
+            text-align: center;
+            transition: 0.2s;
+        }
+        .kr-dark:hover {
+            background: rgba(79, 159, 143, 0.08);
+            transform: translateY(-1px);
+        }
+        .kr-dark-number {
+            font-size: clamp(0.75rem, 1.1vw, 1rem);
+            font-weight: 800;
+            color: #d9f0ea;
+            display: block;
+        }
+        .kr-dark-label {
+            font-size: clamp(0.4rem, 0.6vw, 0.6rem);
+            color: #9bc4bc;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        hr.dark-divider {
+            margin: 0.7rem 0;
+            border-color: rgba(255, 255, 255, 0.06);
+        }
+
+        .edit-hint-dark {
+            font-size: clamp(0.4rem, 0.6vw, 0.55rem);
+            text-align: center;
+            margin-top: 0.8rem;
+            opacity: 0.4;
+            color: #b7cfc8;
+        }
+
+        /* ===== RIGHT PANEL STYLES ===== */
+        .right-white .name-large {
+            font-family: 'Playfair Display', 'Times New Roman', serif;
+            font-size: clamp(1.6rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: #0a1927;
+            letter-spacing: -0.3px;
+            line-height: 1.1;
+        }
+
+        .right-white .job-title-main {
+            font-size: clamp(0.6rem, 0.9vw, 0.85rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #2c7a6e;
+            background: #eaf8f5;
+            display: inline-block;
+            padding: 0.15rem 1rem;
+            border-radius: 40px;
+            margin: 0.3rem 0 0.4rem 0;
+        }
+
+        .headline-hook {
+            font-size: clamp(0.65rem, 0.9vw, 0.85rem);
+            font-weight: 600;
+            color: #1e4a5a;
+            background: #f0f7fa;
+            padding: 0.4rem 0.8rem;
+            border-radius: 10px;
+            border-left: 4px solid #2c7a6e;
+            margin: 0.15rem 0 0.6rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 1.4;
+        }
+        .headline-hook i {
+            color: #2c7a6e;
+            font-size: clamp(0.7rem, 1vw, 0.9rem);
+            flex-shrink: 0;
+        }
+
+        .right-white .divider-light {
+            height: 2px;
+            background: #e5eef5;
+            width: 40px;
+            margin: 0.3rem 0 0.6rem 0;
+        }
+
+        .right-white .section-title-white {
+            font-size: clamp(0.55rem, 0.8vw, 0.7rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            color: #2c7a6e;
+            margin: 0.8rem 0 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .right-white .summary-text {
+            font-size: clamp(0.7rem, 0.95vw, 0.82rem);
+            line-height: 1.5;
+            color: #1e2f3c;
+            background: #fafefe;
+            padding: 0.6rem 0.9rem;
+            border-radius: 14px;
+            border: 1px solid #eef3f2;
+        }
+
+        /* ===== EXPERIENCE ===== */
+        .exp-item {
+            margin-bottom: 0.8rem;
+            padding-left: 0.8rem;
+            border-left: 3px solid #2c7a6e;
+            transition: 0.2s;
+            padding: 0.4rem 0.4rem 0.4rem 0.8rem;
+            border-radius: 0 10px 10px 0;
+        }
+        .exp-item:hover {
+            background: #f8fbfa;
+        }
+
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.05rem;
+            gap: 4px;
+        }
+        .exp-role {
+            font-weight: 800;
+            font-size: clamp(0.7rem, 0.95vw, 0.88rem);
+            color: #0f2c28;
+        }
+        .exp-date {
+            font-size: clamp(0.45rem, 0.65vw, 0.6rem);
+            font-weight: 600;
+            background: #eef3f1;
+            padding: 0.1rem 0.6rem;
+            border-radius: 30px;
+            color: #2c7a6e;
+            white-space: nowrap;
+        }
+        .exp-company {
+            font-size: clamp(0.6rem, 0.8vw, 0.72rem);
+            font-weight: 600;
+            color: #547c6f;
+            margin-bottom: 0.1rem;
+        }
+        .exp-location {
+            font-size: clamp(0.5rem, 0.7vw, 0.62rem);
+            color: #7a8f9e;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .exp-location i {
+            color: #2c7a6e;
+            font-size: 0.5rem;
+        }
+
+        .exp-desc {
+            list-style: none;
+            padding-left: 0;
+        }
+        .exp-desc li {
+            font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+            margin-bottom: 0.2rem;
+            display: flex;
+            gap: 6px;
+            color: #2a3e48;
+            line-height: 1.4;
+        }
+        .exp-desc li i {
+            color: #2c7a6e;
+            font-size: 0.5rem;
+            margin-top: 0.25rem;
+            width: 12px;
+            flex-shrink: 0;
+        }
+
+        /* ===== WHY INTERVIEW ===== */
+        .why-interview {
+            margin-top: 0.8rem;
+            background: #f8fbfa;
+            border-radius: 14px;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #eef3f2;
+        }
+        .why-interview .title {
+            font-size: clamp(0.5rem, 0.7vw, 0.7rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #2c7a6e;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .why-interview .title i {
+            color: #2c7a6e;
+        }
+        .why-interview ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.2rem 0.8rem;
+        }
+        .why-interview ul li {
+            font-size: clamp(0.6rem, 0.8vw, 0.75rem);
+            color: #1e2f3c;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.1rem 0;
+            line-height: 1.3;
+        }
+        .why-interview ul li i {
+            color: #2c7a6e;
+            font-size: 0.6rem;
+            width: 14px;
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 500px) {
+            .why-interview ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== CTA BAR ===== */
+        .cta-bar {
+            background: #0f1a2a;
+            color: white;
+            padding: 0.5rem 0.8rem;
+            border-radius: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 0.8rem;
+            border: 1px solid rgba(79, 159, 143, 0.2);
+        }
+        .cta-bar span {
+            font-size: clamp(0.55rem, 0.75vw, 0.72rem);
+            font-weight: 500;
+            color: #b7cfc8;
+        }
+        .cta-bar .cta-highlight {
+            color: #7fc0b2;
+            font-weight: 700;
+        }
+        .cta-bar .cta-icon {
+            color: #4f9f8f;
+        }
+
+        /* ===== QUICK SCAN BADGE (mobile-friendly) ===== */
+        .quick-scan-badge {
+            position: fixed;
+            bottom: clamp(8px, 2vw, 20px);
+            right: clamp(8px, 2vw, 20px);
+            background: linear-gradient(135deg, #0f1a2a, #1a2a3f);
+            color: #eef2ff;
+            padding: clamp(6px, 1.2vw, 12px) clamp(10px, 1.8vw, 18px);
+            border-radius: 50px;
+            border: 1px solid rgba(79, 159, 143, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: clamp(6px, 1.2vw, 14px);
+            font-size: clamp(0.5rem, 0.8vw, 0.7rem);
+            z-index: 999;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            cursor: default;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .quick-scan-badge:hover {
+            transform: scale(1.03);
+            border-color: #4f9f8f;
+        }
+        .quick-scan-badge .badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 clamp(3px, 0.6vw, 6px);
+        }
+        .quick-scan-badge .badge-number {
+            font-size: clamp(0.65rem, 1.1vw, 0.95rem);
+            font-weight: 800;
+            color: #7fc0b2;
+        }
+        .quick-scan-badge .badge-label {
+            font-size: clamp(0.35rem, 0.5vw, 0.5rem);
+            text-transform: uppercase;
+            color: #9bc4bc;
+            letter-spacing: 0.5px;
+        }
+        .quick-scan-badge .badge-divider {
+            width: 1px;
+            height: clamp(18px, 3vw, 30px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 500px) {
+            .quick-scan-badge {
+                bottom: 6px;
+                right: 6px;
+                padding: 5px 8px;
+                gap: 4px;
+                border-radius: 30px;
+                border-width: 1px;
+            }
+            .quick-scan-badge .badge-item {
+                padding: 0 2px;
+            }
+            .quick-scan-badge .badge-number {
+                font-size: 0.6rem;
+            }
+            .quick-scan-badge .badge-label {
+                font-size: 0.3rem;
+            }
+            .quick-scan-badge .badge-divider {
+                display: none;
+            }
+        }
+
+        /* ===== EDITABLE FIELDS ===== */
+        .editable-field {
+            cursor: pointer;
+            transition: 0.1s;
+            border-radius: 4px;
+            padding: 0 0.15rem;
+        }
+        .editable-field:hover {
+            background: rgba(0, 0, 0, 0.04);
+            outline: 1px dashed #2c7a6e;
+        }
+        .left-dark .editable-field:hover {
+            background: rgba(255, 255, 255, 0.08);
+            outline: 1px dashed #7fc0b2;
+        }
+
+        .edit-input {
+            font-family: inherit;
+            font-size: inherit;
+            border: 1px solid #2c7a6e;
+            border-radius: 10px;
+            padding: 0.05rem 0.3rem;
+            background: white;
+            color: #1e2f3c;
+            max-width: 100%;
+        }
+        .edit-actions {
+            display: inline-flex;
+            gap: 3px;
+            margin-left: 4px;
+        }
+        .edit-exp-btn,
+        .delete-exp-btn {
+            font-family: inherit;
+            font-size: 0.5rem;
+            background: #eef3f1;
+            border: none;
+            border-radius: 30px;
+            padding: 0.05rem 0.5rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .edit-exp-btn:hover {
+            background: #d5e0dc;
+        }
+        .delete-exp-btn:hover {
+            background: #fdd;
+            color: #b91c1c;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 4px;
+            justify-content: flex-end;
+            margin-top: 3px;
+        }
+
+        /* ===== PRINT READY ===== */
+        .dual-resume.print-ready .left-dark::after {
+            display: none;
+        }
+        .dual-resume.print-ready .exp-item:hover {
+            background: transparent;
+        }
+        .dual-resume.print-ready .kr-dark:hover {
+            transform: none;
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .dual-resume.print-ready .editable-field {
+            cursor: default;
+        }
+        .dual-resume.print-ready .editable-field:hover {
+            background: transparent;
+            outline: none;
+        }
+
+        /* ===== PRINT STYLES ===== */
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                margin: 0;
+            }
+            .dual-resume {
+                border-radius: 0;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .toolbar-dual,
+            .add-exp-btn,
+            .action-buttons,
+            .edit-actions,
+            .edit-input,
+            .edit-hint-dark,
+            .pic-upload-btn,
+            .dropdown,
+            .btn-group,
+            .btn-pdf-dual,
+            .dropdown-btn,
+            .quick-scan-badge,
+            .ats-score {
+                display: none !important;
+            }
+            .editable-field {
+                cursor: default;
+                background: none;
+                outline: none;
+            }
+            .left-dark {
+                background: #0f1722 !important;
+                print-color-adjust: exact;
+                -webkit-print-color-adjust: exact;
+            }
+            .left-dark::after {
+                display: none;
+            }
+            .left-dark .profile-pic {
+                border-color: #4f9f8f;
+            }
+            .exp-item {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+            .kr-grid {
+                break-inside: avoid;
+            }
+            .why-interview {
+                break-inside: avoid;
+            }
+            .cta-bar {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== TOOLBAR ===== -->
+    <div class="toolbar-dual" id="toolbarContainer">
+        <div class="btn-group">
+            <div class="ats-score">
+                <span class="score-value">96%</span>
+                <span class="score-label">ATS Match</span>
+            </div>
+            <button class="add-exp-btn" id="addExpDualBtn"><i class="fas fa-plus"></i> Add Role</button>
+            <button class="add-exp-btn" id="printToggleBtn" style="background:#4a6a7a;"><i class="fas fa-print"></i> Print Mode</button>
+            <div class="dropdown">
+                <button class="dropdown-btn" id="dropdownToggle">
+                    <i class="fas fa-download"></i> Export <i class="fas fa-chevron-down" style="font-size:0.6rem; margin-left:4px;"></i>
+                </button>
+                <div class="dropdown-content" id="dropdownMenu">
+                    <button class="drop-item" data-format="pdf"><i class="fas fa-file-pdf"></i> PDF <span class="file-ext">.pdf</span></button>
+                    <button class="drop-item" data-format="docx"><i class="fas fa-file-word"></i> Word <span class="file-ext">.docx</span></button>
+                    <button class="drop-item" data-format="txt"><i class="fas fa-file-alt"></i> Text <span class="file-ext">.txt</span></button>
+                    <div class="drop-divider"></div>
+                    <button class="drop-item" data-format="html"><i class="fas fa-code"></i> HTML <span class="file-ext">.html</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== RESUME ===== -->
+    <div class="dual-resume" id="dualResume">
+
+        <!-- LEFT PANEL -->
+        <div class="left-dark">
+            <div class="profile-section">
+                <div class="profile-pic" id="profilePicContainer">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <input type="file" id="profilePicUpload" accept="image/*" style="display:none;">
+                <button class="pic-upload-btn" id="triggerPicUpload"><i class="fas fa-camera"></i> Add Photo</button>
+                <div class="value-tagline"><i class="fas fa-rocket"></i> 11+ years · $1.8M pipeline · 30+ meetings/mo</div>
+            </div>
+
+            <div class="section-title-dark"><i class="fas fa-address-card"></i> CONTACT</div>
+            <div class="contact-dark-item"><i class="fas fa-phone-alt"></i> <span id="phoneDual" class="editable-field">+63 930 635 9306</span></div>
+            <div class="contact-dark-item"><i class="fas fa-envelope"></i> <span id="emailDual" class="editable-field">va.flynnjames@gmail.com</span></div>
+            <div class="contact-dark-item"><i class="fas fa-map-marker-alt"></i> <span id="locationDual" class="editable-field">Toledo, Cebu, Philippines</span></div>
+            <div class="contact-dark-item"><i class="fab fa-linkedin"></i> <span id="linkedinDual" class="editable-field">linkedin.com/in/fjpontino</span></div>
+            <div class="contact-dark-item"><i class="fas fa-globe"></i> <span id="portfolioDual" class="editable-field">flynn-portfolio-1.onrender.com</span></div>
+
+            <hr class="dark-divider">
+
+            <div class="section-title-dark"><i class="fas fa-bolt"></i> CORE SKILLS</div>
+            <div>
+                <span class="skill-tag-dark">B2B Lead Generation</span>
+                <span class="skill-tag-dark">Cold Calling (150/day)</span>
+                <span class="skill-tag-dark">Outbound Prospecting</span>
+                <span class="skill-tag-dark">BANT/MEDDIC Qualification</span>
+                <span class="skill-tag-dark">Appointment Setting</span>
+                <span class="skill-tag-dark">Pipeline Management</span>
+                <span class="skill-tag-dark">Objection Handling</span>
+                <span class="skill-tag-dark">Multi-Channel Outreach</span>
+                <span class="skill-tag-dark">Consultative Selling</span>
+                <span class="skill-tag-dark">Sales Forecasting</span>
+                <span class="skill-tag-dark">Team Leadership</span>
+                <span class="skill-tag-dark">CRM Data Management</span>
+            </div>
+
+            <div class="section-title-dark" style="margin-top:0.8rem;"><i class="fas fa-tools"></i> TOOLS & TECH</div>
+            <div>
+                <span class="skill-tag-dark">HubSpot CRM</span>
+                <span class="skill-tag-dark">Salesforce</span>
+                <span class="skill-tag-dark">Pipedrive</span>
+                <span class="skill-tag-dark">LinkedIn Sales Nav</span>
+                <span class="skill-tag-dark">ZoomInfo</span>
+                <span class="skill-tag-dark">Lusha</span>
+                <span class="skill-tag-dark">Apollo.io</span>
+                <span class="skill-tag-dark">Outreach.io</span>
+                <span class="skill-tag-dark">Google Workspace</span>
+                <span class="skill-tag-dark">MS Excel</span>
+                <span class="skill-tag-dark">Calendly</span>
+                <span class="skill-tag-dark">Zoom/Teams</span>
+            </div>
+
+            <hr class="dark-divider">
+
+            <div class="section-title-dark"><i class="fas fa-trophy"></i> KEY ACHIEVEMENTS</div>
+            <div class="kr-grid">
+                <div class="kr-dark"><span class="kr-dark-number editable-field">120-150%</span><span class="kr-dark-label">Quota Attainment</span></div>
+                <div class="kr-dark"><span class="kr-dark-number editable-field">30+</span><span class="kr-dark-label">Meetings/Month</span></div>
+                <div class="kr-dark"><span class="kr-dark-number editable-field">150</span><span class="kr-dark-label">Calls/Day</span></div>
+                <div class="kr-dark"><span class="kr-dark-number editable-field">$1.8M</span><span class="kr-dark-label">Pipeline Sourced</span></div>
+                <div class="kr-dark"><span class="kr-dark-number editable-field">Top 5%</span><span class="kr-dark-label">Company Perf.</span></div>
+                <div class="kr-dark"><span class="kr-dark-number editable-field">3x</span><span class="kr-dark-label">Top Performer</span></div>
+            </div>
+
+            <hr class="dark-divider">
+
+            <div class="section-title-dark"><i class="fas fa-graduation-cap"></i> EDUCATION</div>
+            <div class="edu-dark">
+                <div class="edu-degree-dark">BS Electrical Engineering</div>
+                <div class="edu-date-dark">University of Cebu | 2009 – 2014</div>
+            </div>
+
+            <div style="margin-top: 0.5rem;">
+                <span class="skill-tag-dark" style="background:rgba(79,159,143,0.15); border-color:rgba(79,159,143,0.2);">SSWB · LSSWB</span>
+                <span class="skill-tag-dark" style="background:rgba(79,159,143,0.15); border-color:rgba(79,159,143,0.2);">June's Top Performer</span>
+            </div>
+
+            <div class="edit-hint-dark"><i class="fas fa-pen-fancy"></i> Click any text to edit</div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-white">
+            <div class="name-large">FLYNN JAMES Q. PONTINO</div>
+            <div class="job-title-main">SENIOR SALES DEVELOPMENT REPRESENTATIVE</div>
+
+            <div class="headline-hook">
+                <i class="fas fa-bullseye"></i>
+                <span>Sales closer who <strong>sources $1.8M+ pipeline</strong> · <strong>120% quota</strong> · <strong>30+ meetings/month</strong> — ready to drive revenue from day one</span>
+            </div>
+
+            <div class="divider-light"></div>
+
+            <div class="section-title-white"><i class="fas fa-user-check"></i> EXECUTIVE PROFILE</div>
+            <div class="summary-text" id="summaryTextElem">
+                Results-driven SDR with <strong class="editable-field" id="yearsExpField">11+ years</strong> in B2B outbound sales, generating <strong>$1.8M+ pipeline</strong> and consistently exceeding quotas by <strong>120–150%</strong>. Expert in high-volume cold calling (150/day), multi-channel sequencing, and BANT/MEDDIC qualification. Delivers <strong>30+ qualified meetings/month</strong> across US, UK, AU, SG markets. Proven leader who mentors SDRs and accelerates team performance.
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.3rem;">
+                <div class="section-title-white"><i class="fas fa-briefcase"></i> PROFESSIONAL EXPERIENCE</div>
+            </div>
+            <div id="expListDual"></div>
+
+            <!-- WHY INTERVIEW -->
+            <div class="why-interview">
+                <div class="title"><i class="fas fa-question-circle"></i> WHY INTERVIEW</div>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> 11+ years outbound & closing – zero ramp, immediate contribution</li>
+                    <li><i class="fas fa-check-circle"></i> Native English + executive presence – trusted by C-level buyers</li>
+                    <li><i class="fas fa-check-circle"></i> CRM & data expert: HubSpot power user, turns activity into pipeline insights</li>
+                    <li><i class="fas fa-check-circle"></i> Proven in remote, KPI-driven environments – thrives on autonomy</li>
+                </ul>
+            </div>
+
+            <div class="cta-bar">
+                <span><i class="fas fa-check-circle cta-icon"></i> <span class="cta-highlight">Available</span> — remote roles</span>
+                <span><i class="fas fa-clock cta-icon"></i> <span class="cta-highlight">Immediate start</span> · 11+ years</span>
+                <span><i class="fas fa-envelope cta-icon"></i> va.flynnjames@gmail.com</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== QUICK SCAN BADGE ===== -->
+    <div class="quick-scan-badge" id="quickScanBadge">
+        <div class="badge-item">
+            <span class="badge-number">11+</span>
+            <span class="badge-label">Years</span>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge-item">
+            <span class="badge-number">$1.8M</span>
+            <span class="badge-label">Pipeline</span>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge-item">
+            <span class="badge-number">30+</span>
+            <span class="badge-label">Meetings</span>
+        </div>
+        <div class="badge-divider"></div>
+        <div class="badge-item">
+            <span class="badge-number">120%</span>
+            <span class="badge-label">Quota</span>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // ===== INLINE EDITOR =====
+            function makeInlineEditable(element, onUpdate) {
+                if (!element || element.hasAttribute('data-editable-attached')) return;
+                element.setAttribute('data-editable-attached', 'true');
+                element.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (this.querySelector('.edit-input')) return;
+                    const current = this.innerText;
+                    const input = document.createElement('input');
+                    input.value = current;
+                    input.className = 'edit-input';
+                    const actions = document.createElement('div');
+                    actions.className = 'edit-actions';
+                    const saveBtn = document.createElement('button');
+                    saveBtn.innerText = '✓';
+                    saveBtn.className = 'edit-btn-save';
+                    const cancelBtn = document.createElement('button');
+                    cancelBtn.innerText = '✗';
+                    cancelBtn.className = 'edit-btn-cancel';
+                    actions.appendChild(saveBtn);
+                    actions.appendChild(cancelBtn);
+                    this.innerText = '';
+                    this.appendChild(input);
+                    this.appendChild(actions);
+                    input.focus();
+                    const save = () => {
+                        let newVal = input.value.trim();
+                        if (newVal === '') newVal = current;
+                        element.innerText = newVal;
+                        if (onUpdate) onUpdate(element, newVal);
+                    };
+                    const cancel = () => { element.innerText = current; };
+                    saveBtn.onclick = function(ev) { ev.stopPropagation();
+                        save(); };
+                    cancelBtn.onclick = function(ev) { ev.stopPropagation();
+                        cancel(); };
+                    input.onkeypress = function(ev) { if (ev.key === 'Enter') { save(); } };
+                    input.onblur = function() { setTimeout(function() { if (element.querySelector('.edit-input'))
+                            save(); }, 150); };
+                });
+            }
+
+            // ===== PROFILE PICTURE =====
+            const picContainer = document.getElementById('profilePicContainer');
+            const fileInput = document.getElementById('profilePicUpload');
+            const triggerBtn = document.getElementById('triggerPicUpload');
+            triggerBtn.addEventListener('click', function() { fileInput.click(); });
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(ev) {
+                        picContainer.innerHTML = '<img src="' + ev.target.result + '" alt="Profile">';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            // ===== PRINT MODE =====
+            const printToggleBtn = document.getElementById('printToggleBtn');
+            const resumeCard = document.getElementById('dualResume');
+            let printMode = false;
+            printToggleBtn.addEventListener('click', function() {
+                printMode = !printMode;
+                resumeCard.classList.toggle('print-ready', printMode);
+                this.innerHTML = printMode ? '<i class="fas fa-edit"></i> Edit Mode' :
+                    '<i class="fas fa-print"></i> Print Mode';
+                this.style.background = printMode ? '#2c7a6e' : '#4a6a7a';
+            });
+
+            // ===== EXPERIENCE DATA =====
+            let experiencesDual = [{
+                role: "Junior Sales Team Lead",
+                company: "Regen Digital",
+                industry: "Digital Marketing & Sales",
+                location: "Remote (Dover, DE)",
+                date: "Jul 2026 – Present",
+                bullets: [
+                    "Coach SDRs on objection handling, qualification, and closing techniques; share proven scripts and call strategies.",
+                    "Monitor team metrics and develop sales talent through accountability, coaching, and results-driven leadership.",
+                    "Support onboarding through structured mentoring, shadowing, and constructive feedback sessions.",
+                    "Foster a high-performance, collaborative team culture that consistently exceeds monthly KPIs by 15%+."
+                ]
+            }, {
+                role: "Sales Development Representative",
+                company: "Regen Digital",
+                industry: "Digital Marketing & Sales",
+                location: "Remote (Dover, DE)",
+                date: "May 2026 – Present",
+                bullets: [
+                    "Generate qualified sales opportunities through strategic outbound prospecting and consultative selling.",
+                    "Engage C-level decision-makers, qualify prospects using BANT, and book high-value revenue-generating appointments.",
+                    "Achieved Level 4 (highest company tier) within 3 weeks, exceeding 60+ KPIs for calls, connects, and meetings.",
+                    "Maintain 100% CRM data accuracy in HubSpot, enabling precise pipeline forecasting and reporting."
+                ]
+            }, {
+                role: "Outbound Sales Representative",
+                company: "Seek Marketing Partners",
+                industry: "Marketing & Advertising",
+                location: "Remote (Bury, UK)",
+                date: "Nov 2025 – Apr 2026",
+                bullets: [
+                    "Crushed quota by 120% with 150+ daily cold calls & LinkedIn outreach, generating 30+ qualified meetings/month.",
+                    "Owned full sales pipeline: contributed $1.8M in sourced opportunities; improved forecasting accuracy by 30%.",
+                    "Increased response rates 18% through new objection-handling scripts and optimized multi-channel cadences.",
+                    "Managed end-to-end lead lifecycle in HubSpot, from initial outreach to appointment confirmation and handoff."
+                ]
+            }, {
+                role: "Sales Development Representative",
+                company: "Averps Pte Ltd",
+                industry: "Enterprise SaaS & IT",
+                location: "Remote (Singapore)",
+                date: "Feb 2025 – Nov 2025",
+                bullets: [
+                    "Achieved 100% SQL target with 22% demo conversion rate from cold outbound sequences and strategic follow-ups.",
+                    "Built and optimized email/LinkedIn cadences generating $1.2M in qualified opportunities for Account Executives.",
+                    "Pioneered BANT qualification framework, improving opportunity-to-close rates by 15%.",
+                    "Collaborated with marketing to refine ICP and develop targeted account-based outreach campaigns."
+                ]
+            }, {
+                role: "Delegate Sales Acquisition Representative",
+                company: "Public Sector Network",
+                industry: "B2B Events & Conferences",
+                location: "Remote (Toronto, Canada)",
+                date: "Nov 2022 – Jan 2025",
+                bullets: [
+                    "Exceeded acquisition targets by 15% YoY; achieved 20% lead-to-attendee conversion rate (top 5% company-wide).",
+                    "Leveraged LinkedIn Sales Navigator to achieve 28% higher connection-to-meeting rate; mentored 3 junior SDRs.",
+                    "AI personalization pilot increased email open rates by 22% and reply rates by 12%.",
+                    "Prepared and presented comprehensive weekly client reports to stakeholders, driving data-driven decisions."
+                ]
+            }, {
+                role: "Client Acquisition Manager | Senior SDR",
+                company: "Pacific Outsource Teleservices",
+                industry: "BPO / Lead Generation",
+                location: "Office-based (Philippines)",
+                date: "Mar 2015 – Jan 2022",
+                bullets: [
+                    "Generated 100+ leads/week and 30–40+ appointments/month across 30+ clients; exceeded quota by 120–150% consistently.",
+                    "Led and mentored 5 SDRs: increased team productivity by 20% and reduced onboarding time by 25%.",
+                    "Expanded market presence into US, UK, AU, and SG, boosting appointment conversion rates by 18%.",
+                    "Introduced a new performance tracking system that improved team KPIs and reduced reporting errors by 40%."
+                ]
+            }, {
+                role: "Sales Specialist",
+                company: "Global Empire Corporation",
+                industry: "Retail / BPO",
+                location: "Office-based (Cebu, Philippines)",
+                date: "Sep 2014 – Sep 2015",
+                bullets: [
+                    "Achieved 150% of sales quota within first 6 months; earned 'Employee of the Month' award twice.",
+                    "Reduced customer churn by 14% through proactive relationship management and strategic follow-ups.",
+                    "Cross-trained 8 new hires, shortening onboarding time by 20% and improving first-month attainment.",
+                    "Recognized as top agent for consistently delivering 95%+ customer satisfaction scores."
+                ]
+            }];
+
+            // ===== RENDER EXPERIENCE =====
+            function renderDualExperience() {
+                const container = document.getElementById('expListDual');
+                if (!container) return;
+                container.innerHTML = '';
+                experiencesDual.forEach(function(exp, idx) {
+                    const expDiv = document.createElement('div');
+                    expDiv.className = 'exp-item';
+                    const headerDiv = document.createElement('div');
+                    headerDiv.className = 'exp-header';
+                    const roleSpan = document.createElement('span');
+                    roleSpan.className = 'exp-role editable-field';
+                    roleSpan.innerText = exp.role;
+                    makeInlineEditable(roleSpan, function() { experiencesDual[idx].role = roleSpan.innerText; });
+                    const dateSpan = document.createElement('span');
+                    dateSpan.className = 'exp-date editable-field';
+                    dateSpan.innerText = exp.date;
+                    makeInlineEditable(dateSpan, function() { experiencesDual[idx].date = dateSpan.innerText; });
+                    headerDiv.appendChild(roleSpan);
+                    headerDiv.appendChild(dateSpan);
+
+                    const companyDiv = document.createElement('div');
+                    companyDiv.className = 'exp-company editable-field';
+                    companyDiv.innerText = exp.company + (exp.industry ? ' — ' + exp.industry : '');
+                    makeInlineEditable(companyDiv, function() {
+                        const parts = companyDiv.innerText.split(' — ');
+                        experiencesDual[idx].company = parts[0] || '';
+                        experiencesDual[idx].industry = parts[1] || '';
+                    });
+
+                    const locationDiv = document.createElement('div');
+                    locationDiv.className = 'exp-location';
+                    locationDiv.innerHTML = '<i class="fas fa-map-marker-alt"></i> ' + exp.location;
+
+                    const ul = document.createElement('ul');
+                    ul.className = 'exp-desc';
+                    exp.bullets.forEach(function(bullet, bIdx) {
+                        const li = document.createElement('li');
+                        const icon = document.createElement('i');
+                        icon.className = 'fas fa-chevron-right';
+                        const textSpan = document.createElement('span');
+                        textSpan.className = 'editable-field';
+                        textSpan.innerText = bullet;
+                        makeInlineEditable(textSpan, function() { experiencesDual[idx].bullets[bIdx] =
+                            textSpan.innerText; });
+                        li.appendChild(icon);
+                        li.appendChild(textSpan);
+                        const delBtn = document.createElement('button');
+                        delBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+                        delBtn.style.background = 'transparent';
+                        delBtn.style.border = 'none';
+                        delBtn.style.marginLeft = '4px';
+                        delBtn.style.cursor = 'pointer';
+                        delBtn.style.fontSize = '0.5rem';
+                        delBtn.style.color = '#b91c1c';
+                        delBtn.onclick = function(e) {
+                            e.stopPropagation();
+                            experiencesDual[idx].bullets.splice(bIdx, 1);
+                            renderDualExperience();
+                        };
+                        li.appendChild(delBtn);
+                        ul.appendChild(li);
+                    });
+                    const addBulletBtn = document.createElement('button');
+                    addBulletBtn.innerText = '+ Add';
+                    addBulletBtn.style.background = '#eef3f1';
+                    addBulletBtn.style.border = 'none';
+                    addBulletBtn.style.borderRadius = '30px';
+                    addBulletBtn.style.fontSize = '0.55rem';
+                    addBulletBtn.style.padding = '0.05rem 0.6rem';
+                    addBulletBtn.style.cursor = 'pointer';
+                    addBulletBtn.style.marginTop = '3px';
+                    addBulletBtn.onclick = function() {
+                        const newItem = prompt('Add achievement (use metrics/verbs):');
+                        if (newItem && newItem.trim()) experiencesDual[idx].bullets.push(newItem.trim());
+                        renderDualExperience();
+                    };
+                    const actionsDiv = document.createElement('div');
+                    actionsDiv.className = 'action-buttons';
+                    const editExp = document.createElement('button');
+                    editExp.innerText = '✎ Edit';
+                    editExp.className = 'edit-exp-btn';
+                    editExp.onclick = function() {
+                        const nRole = prompt('Role:', exp.role);
+                        if (nRole !== null) exp.role = nRole;
+                        const nCompany = prompt('Company:', exp.company);
+                        if (nCompany !== null) exp.company = nCompany;
+                        const nIndustry = prompt('Industry:', exp.industry || '');
+                        if (nIndustry !== null) exp.industry = nIndustry;
+                        const nLocation = prompt('Location:', exp.location);
+                        if (nLocation !== null) exp.location = nLocation;
+                        const nDate = prompt('Date:', exp.date);
+                        if (nDate !== null) exp.date = nDate;
+                        renderDualExperience();
+                    };
+                    const delExp = document.createElement('button');
+                    delExp.innerText = '🗑 Delete';
+                    delExp.className = 'delete-exp-btn';
+                    delExp.onclick = function() { if (confirm('Remove this role?')) { experiencesDual.splice(
+                            idx, 1);
+                            renderDualExperience(); } };
+                    actionsDiv.appendChild(editExp);
+                    actionsDiv.appendChild(delExp);
+                    expDiv.appendChild(headerDiv);
+                    expDiv.appendChild(companyDiv);
+                    expDiv.appendChild(locationDiv);
+                    expDiv.appendChild(ul);
+                    expDiv.appendChild(addBulletBtn);
+                    expDiv.appendChild(actionsDiv);
+                    container.appendChild(expDiv);
+                });
+            }
+
+            // ===== ADD ROLE =====
+            document.getElementById('addExpDualBtn').addEventListener('click', function() {
+                const newRole = prompt('Job Title:');
+                if (!newRole) return;
+                experiencesDual.push({
+                    role: newRole,
+                    company: prompt('Company:', 'New Company') || 'New Company',
+                    industry: prompt('Industry:', 'B2B Sales') || 'B2B Sales',
+                    location: prompt('Location:', 'Remote') || 'Remote',
+                    date: prompt('Date:', '2026 – Present') || 'Present',
+                    bullets: [
+                        'Generated 40+ qualified leads weekly through outbound prospecting',
+                        'Achieved 110% of monthly quota consistently',
+                        'Managed full-cycle CRM data and pipeline hygiene',
+                        'Collaborated with marketing to refine ICP and outreach strategies'
+                    ]
+                });
+                renderDualExperience();
+            });
+
+            // ===== INIT EDITABLES =====
+            var leftFields = ['phoneDual', 'emailDual', 'linkedinDual', 'portfolioDual', 'locationDual'];
+            leftFields.forEach(function(id) { var el = document.getElementById(id); if (el) makeInlineEditable(el); });
+            document.querySelectorAll('.kr-dark-number').forEach(function(kr) { makeInlineEditable(kr); });
+            var summaryDiv = document.getElementById('summaryTextElem');
+            if (summaryDiv) makeInlineEditable(summaryDiv);
+            var yearsSpan = document.getElementById('yearsExpField');
+            if (yearsSpan) makeInlineEditable(yearsSpan);
+
+            renderDualExperience();
+
+            // ===== DROPDOWN =====
+            var dropdownToggle = document.getElementById('dropdownToggle');
+            var dropdownMenu = document.getElementById('dropdownMenu');
+            dropdownToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+            document.addEventListener('click', function() {
+                dropdownMenu.classList.remove('show');
+            });
+
+            // ===== GET CLEAN RESUME HTML (excludes all UI buttons) =====
+            function getCleanResumeHTML() {
+                var resume = document.getElementById('dualResume');
+                var clone = resume.cloneNode(true);
+
+                // Remove ALL interactive/UI elements
+                var removeSelectors = [
+                    '.add-exp-btn', '.action-buttons', '.edit-actions', '.edit-input',
+                    '.edit-hint-dark', '.pic-upload-btn', '.dropdown', '.btn-group',
+                    '.btn-pdf-dual', '.dropdown-btn', '.toolbar-dual', '#profilePicUpload',
+                    '.quick-scan-badge', '.ats-score'
+                ];
+                removeSelectors.forEach(function(sel) {
+                    clone.querySelectorAll(sel).forEach(function(el) { el.remove(); });
+                });
+
+                // Remove any remaining buttons inside experience items
+                clone.querySelectorAll('.exp-item button').forEach(function(el) {
+                    el.remove();
+                });
+
+                // Remove editable-field classes and attributes
+                clone.querySelectorAll('.editable-field').forEach(function(el) {
+                    el.classList.remove('editable-field');
+                    el.removeAttribute('data-editable-attached');
+                });
+
+                // Remove print-ready class if present
+                clone.classList.remove('print-ready');
+
+                return clone.outerHTML;
+            }
+
+            // ===== EXPORT: PDF (one page, compressed) =====
+            async function exportPDF() {
+                var btn = document.querySelector('.dropdown-btn');
+                var originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+
+                // Hide UI elements
+                var uiElements = document.querySelectorAll(
+                    '.add-exp-btn, .action-buttons, .edit-actions, .edit-input, .toolbar-dual, .btn-pdf-dual, .edit-hint-dark, .pic-upload-btn, #profilePicUpload, .dropdown, .btn-group, .dropdown-btn, .quick-scan-badge, .ats-score'
+                );
+                var hidden = [];
+                uiElements.forEach(function(el) {
+                    if (el.style.display !== 'none') {
+                        hidden.push({ el: el, display: el.style.display });
+                        el.style.display = 'none';
+                    }
+                });
+
+                var element = document.getElementById('dualResume');
+                element.classList.remove('print-ready');
+
+                var opt = {
+                    margin: [0.3, 0.3, 0.3, 0.3],
+                    filename: 'Flynn_Pontino_Resume.pdf',
+                    image: { type: 'jpeg', quality: 0.85 },
+                    html2canvas: {
+                        scale: 1.8,
+                        letterRendering: true,
+                        useCORS: false,
+                        logging: false,
+                        width: 1100
+                    },
+                    jsPDF: {
+                        unit: 'in',
+                        format: 'letter',
+                        orientation: 'portrait',
+                        compress: true,
+                        precision: 2
+                    },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+
+                try {
+                    const pdfBlob = await html2pdf().set(opt).from(element).outputPdf('blob');
+                    saveAs(pdfBlob, 'Flynn_Pontino_Resume.pdf');
+                } catch (err) {
+                    console.error('PDF error:', err);
+                    alert('PDF export failed. Please try another format.');
+                }
+
+                hidden.forEach(function(item) { item.el.style.display = item.display; });
+                btn.innerHTML = originalText;
+            }
+
+            // ===== EXPORT: DOCX (using .docx extension, clean layout) =====
+            function exportDOCX() {
+                // Get clean HTML without any UI elements
+                var cleanHTML = getCleanResumeHTML();
+
+                // Build full DOCX-compatible HTML with embedded styles
+                var styles = `
+                    <style>
+                        /* Reset and base */
+                        body { 
+                            font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; 
+                            max-width: 1100px; 
+                            margin: 0 auto; 
+                            padding: 20px; 
+                            line-height: 1.4; 
+                            font-size: 11pt; 
+                            color: #1e2f3c;
+                            background: white;
+                        }
+                        /* Dual layout */
+                        .dual-resume { 
+                            display: flex; 
+                            flex-wrap: wrap; 
+                            background: white;
+                            border-radius: 8px;
+                            overflow: hidden;
+                        }
+                        .left-dark { 
+                            flex: 1; 
+                            min-width: 220px; 
+                            background: #0f1722; 
+                            color: #eef2ff; 
+                            padding: 20px; 
+                            border-radius: 8px 0 0 8px;
+                        }
+                        .right-white { 
+                            flex: 1.6; 
+                            min-width: 280px; 
+                            background: white; 
+                            padding: 20px; 
+                            border-radius: 0 8px 8px 0;
+                        }
+                        @media (max-width: 780px) { 
+                            .left-dark, .right-white { 
+                                flex: auto; 
+                                width: 100%; 
+                                border-radius: 8px;
+                            } 
+                        }
+                        /* Left panel styles */
+                        .left-dark .profile-section { text-align: center; margin-bottom: 15px; }
+                        .left-dark .profile-pic { 
+                            width: 100px; 
+                            height: 100px; 
+                            border-radius: 50%; 
+                            background: #2a3a4e; 
+                            border: 3px solid #4f9f8f; 
+                            margin: 0 auto 8px auto;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 40px;
+                            color: #6a8f9e;
+                            overflow: hidden;
+                        }
+                        .left-dark .profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+                        .value-tagline { 
+                            text-align: center; 
+                            font-size: 10pt; 
+                            color: #9bc4bc; 
+                            background: rgba(79,159,143,0.12); 
+                            padding: 6px; 
+                            border-radius: 40px; 
+                            border: 1px solid rgba(79,159,143,0.15); 
+                        }
+                        .section-title-dark { 
+                            font-size: 9pt; 
+                            font-weight: 700; 
+                            text-transform: uppercase; 
+                            letter-spacing: 1.5px; 
+                            color: #9bc4bc; 
+                            margin: 14px 0 8px 0; 
+                            border-left: 3px solid #4f9f8f; 
+                            padding-left: 10px; 
+                        }
+                        .section-title-dark:first-of-type { margin-top: 0; }
+                        .contact-dark-item { 
+                            display: flex; 
+                            align-items: center; 
+                            gap: 8px; 
+                            font-size: 9.5pt; 
+                            margin-bottom: 5px; 
+                            color: #cfdfda; 
+                            padding: 2px 5px;
+                        }
+                        .contact-dark-item i { width: 18px; color: #4f9f8f; }
+                        .skill-tag-dark { 
+                            background: rgba(255,255,255,0.07); 
+                            display: inline-block; 
+                            padding: 2px 10px; 
+                            border-radius: 40px; 
+                            font-size: 9pt; 
+                            color: #eef3f1; 
+                            margin: 2px 3px; 
+                            border: 1px solid rgba(255,255,255,0.03); 
+                        }
+                        .edu-dark { 
+                            background: rgba(255,255,255,0.04); 
+                            border-radius: 12px; 
+                            padding: 8px 12px; 
+                            border: 1px solid rgba(255,255,255,0.04); 
+                        }
+                        .edu-degree-dark { font-weight: 700; font-size: 10.5pt; color: #d9f0ea; }
+                        .edu-date-dark { font-size: 9pt; color: #90b7ae; }
+                        .kr-grid { 
+                            display: grid; 
+                            grid-template-columns: 1fr 1fr; 
+                            gap: 6px; 
+                        }
+                        .kr-dark { 
+                            background: rgba(255,255,255,0.04); 
+                            border-radius: 10px; 
+                            padding: 6px 8px; 
+                            border: 1px solid rgba(79,159,143,0.12); 
+                            text-align: center; 
+                        }
+                        .kr-dark-number { 
+                            font-size: 13pt; 
+                            font-weight: 800; 
+                            color: #d9f0ea; 
+                            display: block; 
+                        }
+                        .kr-dark-label { 
+                            font-size: 7.5pt; 
+                            color: #9bc4bc; 
+                            text-transform: uppercase; 
+                            letter-spacing: 0.5px; 
+                        }
+                        hr.dark-divider { margin: 10px 0; border-color: rgba(255,255,255,0.06); }
+
+                        /* Right panel styles */
+                        .name-large { 
+                            font-family: 'Georgia', 'Times New Roman', serif; 
+                            font-size: 24pt; 
+                            font-weight: 700; 
+                            color: #0a1927; 
+                            letter-spacing: -0.3px; 
+                            line-height: 1.1; 
+                        }
+                        .job-title-main { 
+                            font-size: 10.5pt; 
+                            font-weight: 700; 
+                            text-transform: uppercase; 
+                            letter-spacing: 2px; 
+                            color: #2c7a6e; 
+                            background: #eaf8f5; 
+                            display: inline-block; 
+                            padding: 3px 16px; 
+                            border-radius: 40px; 
+                            margin: 4px 0 6px 0; 
+                        }
+                        .headline-hook { 
+                            font-size: 10.5pt; 
+                            font-weight: 600; 
+                            color: #1e4a5a; 
+                            background: #f0f7fa; 
+                            padding: 6px 12px; 
+                            border-radius: 8px; 
+                            border-left: 4px solid #2c7a6e; 
+                            margin: 4px 0 8px 0; 
+                            display: flex; 
+                            align-items: center; 
+                            gap: 8px; 
+                            line-height: 1.4; 
+                        }
+                        .divider-light { 
+                            height: 2px; 
+                            background: #e5eef5; 
+                            width: 50px; 
+                            margin: 6px 0 10px 0; 
+                        }
+                        .section-title-white { 
+                            font-size: 9pt; 
+                            font-weight: 800; 
+                            text-transform: uppercase; 
+                            letter-spacing: 1.4px; 
+                            color: #2c7a6e; 
+                            margin: 10px 0 6px 0; 
+                            display: flex; 
+                            align-items: center; 
+                            gap: 6px; 
+                        }
+                        .summary-text { 
+                            font-size: 10.5pt; 
+                            line-height: 1.5; 
+                            color: #1e2f3c; 
+                            background: #fafefe; 
+                            padding: 8px 12px; 
+                            border-radius: 12px; 
+                            border: 1px solid #eef3f2; 
+                        }
+                        .exp-item { 
+                            margin-bottom: 10px; 
+                            padding-left: 12px; 
+                            border-left: 3px solid #2c7a6e; 
+                            padding: 6px 6px 6px 12px; 
+                            border-radius: 0 8px 8px 0; 
+                        }
+                        .exp-header { 
+                            display: flex; 
+                            flex-wrap: wrap; 
+                            justify-content: space-between; 
+                            align-items: baseline; 
+                            margin-bottom: 2px; 
+                            gap: 4px; 
+                        }
+                        .exp-role { font-weight: 800; font-size: 11pt; color: #0f2c28; }
+                        .exp-date { 
+                            font-size: 8.5pt; 
+                            font-weight: 600; 
+                            background: #eef3f1; 
+                            padding: 2px 10px; 
+                            border-radius: 30px; 
+                            color: #2c7a6e; 
+                            white-space: nowrap; 
+                        }
+                        .exp-company { font-size: 9.5pt; font-weight: 600; color: #547c6f; margin-bottom: 2px; }
+                        .exp-location { font-size: 8.5pt; color: #7a8f9e; margin-bottom: 4px; }
+                        .exp-desc { list-style: none; padding-left: 0; }
+                        .exp-desc li { 
+                            font-size: 9.5pt; 
+                            margin-bottom: 3px; 
+                            display: flex; 
+                            gap: 6px; 
+                            color: #2a3e48; 
+                            line-height: 1.4; 
+                        }
+                        .exp-desc li i { color: #2c7a6e; width: 12px; flex-shrink: 0; }
+
+                        .why-interview { 
+                            background: #f8fbfa; 
+                            border-radius: 12px; 
+                            padding: 8px 12px; 
+                            border: 1px solid #eef3f2; 
+                            margin-top: 10px; 
+                        }
+                        .why-interview .title { 
+                            font-weight: 700; 
+                            text-transform: uppercase; 
+                            font-size: 8.5pt; 
+                            color: #2c7a6e; 
+                            margin-bottom: 4px; 
+                            display: flex; 
+                            align-items: center; 
+                            gap: 6px; 
+                        }
+                        .why-interview ul { 
+                            list-style: none; 
+                            padding: 0; 
+                            display: grid; 
+                            grid-template-columns: 1fr 1fr; 
+                            gap: 2px 12px; 
+                        }
+                        .why-interview ul li { 
+                            font-size: 9.5pt; 
+                            color: #1e2f3c; 
+                            display: flex; 
+                            align-items: center; 
+                            gap: 5px; 
+                            padding: 2px 0; 
+                        }
+                        .why-interview ul li i { color: #2c7a6e; width: 14px; }
+
+                        .cta-bar { 
+                            background: #0f1a2a; 
+                            color: white; 
+                            padding: 8px 12px; 
+                            border-radius: 12px; 
+                            display: flex; 
+                            justify-content: space-between; 
+                            flex-wrap: wrap; 
+                            gap: 6px; 
+                            margin-top: 10px; 
+                            border: 1px solid rgba(79,159,143,0.2); 
+                        }
+                        .cta-bar span { font-size: 9.5pt; color: #b7cfc8; }
+                        .cta-bar .cta-highlight { color: #7fc0b2; font-weight: 700; }
+                        .cta-bar .cta-icon { color: #4f9f8f; }
+
+                        @media (max-width: 600px) { 
+                            .why-interview ul { grid-template-columns: 1fr; } 
+                            .kr-grid { grid-template-columns: 1fr; }
+                        }
+                    </style>
+                `;
+
+                // Build the full DOCX document with proper Word XML headers
+                var docHTML = `
+                    <html xmlns:o="urn:schemas-microsoft-com:office:office" 
+                          xmlns:w="urn:schemas-microsoft-com:office:word" 
+                          xmlns="http://www.w3.org/TR/REC-html40">
+                    <head>
+                        <meta charset="utf-8">
+                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                        <!--[if gte mso 9]>
+                        <xml>
+                            <w:WordDocument>
+                                <w:View>Print</w:View>
+                                <w:Zoom>100</w:Zoom>
+                            </w:WordDocument>
+                        </xml>
+                        <![endif]-->
+                        ${styles}
+                    </head>
+                    <body>
+                        <div class="dual-resume">
+                            ${cleanHTML}
+                        </div>
+                    </body>
+                    </html>
+                `;
+
+                var blob = new Blob([docHTML], { 
+                    type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document;charset=utf-8' 
+                });
+                saveAs(blob, 'Flynn_Pontino_Resume.docx');
+            }
+
+            // ===== EXPORT: TXT =====
+            function exportTXT() {
+                var resume = document.getElementById('dualResume');
+                var text = resume.textContent
+                    .replace(/\s+/g, ' ')
+                    .replace(/[^\x20-\x7E\n]/g, ' ')
+                    .trim();
+                var blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+                saveAs(blob, 'Flynn_Pontino_Resume.txt');
+            }
+
+            // ===== EXPORT: HTML =====
+            function exportHTML() {
+                var html = getCleanResumeHTML();
+                var fullHTML = `<!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Flynn James Pontino – Senior SDR Resume</title>
+                    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+                    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+                    <style>
+                        /* Full styles preserved from original */
+                        *{margin:0;padding:0;box-sizing:border-box}
+                        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Inter",Arial,sans-serif;background:#e8edf3;display:flex;justify-content:center;padding:40px 20px;line-height:1.5}
+                        .dual-resume{max-width:1100px;width:100%;background:#fff;border-radius:28px;box-shadow:0 30px 60px -20px rgba(0,0,0,0.3);overflow:hidden;display:flex;flex-wrap:wrap}
+                        .left-dark{flex:1;background:linear-gradient(160deg,#0f1a2a,#1a2a3f);color:#eef2ff;padding:2.4rem 1.8rem}
+                        .right-white{flex:1.6;background:#fff;padding:2.4rem 2.2rem}
+                        .left-dark .section-title-dark{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#9bc4bc;margin:1.4rem 0 0.8rem 0;border-left:3px solid #4f9f8f;padding-left:10px}
+                        .contact-dark-item{display:flex;align-items:center;gap:10px;font-size:0.72rem;margin-bottom:0.6rem;color:#cfdfda}
+                        .contact-dark-item i{width:22px;color:#4f9f8f;font-size:0.85rem}
+                        .skill-tag-dark{background:rgba(255,255,255,0.07);display:inline-block;padding:0.25rem 0.9rem;border-radius:40px;font-size:0.7rem;color:#eef3f1;margin:0.2rem;border:1px solid rgba(255,255,255,0.03)}
+                        .kr-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem}
+                        .kr-dark{background:rgba(255,255,255,0.04);border-radius:14px;padding:0.5rem 0.7rem;border:1px solid rgba(79,159,143,0.12);text-align:center}
+                        .kr-dark-number{font-size:1rem;font-weight:800;color:#d9f0ea;display:block}
+                        .kr-dark-label{font-size:0.6rem;color:#9bc4bc;text-transform:uppercase;letter-spacing:0.5px}
+                        .edu-dark{background:rgba(255,255,255,0.04);border-radius:16px;padding:0.6rem 1rem}
+                        .edu-degree-dark{font-weight:700;font-size:0.8rem;color:#d9f0ea}
+                        .edu-date-dark{font-size:0.65rem;color:#90b7ae}
+                        .right-white .name-large{font-family:"Playfair Display",serif;font-size:2.5rem;font-weight:700;color:#0a1927}
+                        .right-white .job-title-main{font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:#2c7a6e;background:#eaf8f5;display:inline-block;padding:0.25rem 1.2rem;border-radius:40px;margin:0.4rem 0 0.6rem 0}
+                        .headline-hook{font-size:0.85rem;font-weight:600;color:#1e4a5a;background:#f0f7fa;padding:0.6rem 1rem;border-radius:12px;border-left:4px solid #2c7a6e;margin:0.2rem 0 0.8rem 0;display:flex;align-items:center;gap:10px}
+                        .headline-hook i{color:#2c7a6e}
+                        .right-white .section-title-white{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.6px;color:#2c7a6e;margin:1.2rem 0 0.7rem 0;display:flex;align-items:center;gap:8px}
+                        .right-white .summary-text{font-size:0.82rem;line-height:1.6;color:#1e2f3c;background:#fafefe;padding:0.9rem 1.1rem;border-radius:16px;border:1px solid #eef3f2}
+                        .exp-item{margin-bottom:1.2rem;padding-left:1rem;border-left:3px solid #2c7a6e;padding:0.6rem 0.6rem 0.6rem 1rem;border-radius:0 12px 12px 0}
+                        .exp-header{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;margin-bottom:0.1rem}
+                        .exp-role{font-weight:800;font-size:0.88rem;color:#0f2c28}
+                        .exp-date{font-size:0.6rem;font-weight:600;background:#eef3f1;padding:0.15rem 0.7rem;border-radius:30px;color:#2c7a6e}
+                        .exp-company{font-size:0.72rem;font-weight:600;color:#547c6f;margin-bottom:0.2rem}
+                        .exp-location{font-size:0.62rem;color:#7a8f9e;margin-bottom:0.3rem}
+                        .exp-desc{list-style:none;padding-left:0}
+                        .exp-desc li{font-size:0.75rem;margin-bottom:0.3rem;display:flex;gap:8px;color:#2a3e48;line-height:1.5}
+                        .exp-desc li i{color:#2c7a6e;font-size:0.55rem;margin-top:0.3rem;width:14px;flex-shrink:0}
+                        .cta-bar{background:#0f1a2a;color:white;padding:0.7rem 1rem;border-radius:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-top:1.2rem;border:1px solid rgba(79,159,143,0.2)}
+                        .cta-bar span{font-size:0.72rem;font-weight:500;color:#b7cfc8}
+                        .cta-bar .cta-highlight{color:#7fc0b2;font-weight:700}
+                        .cta-bar .cta-icon{color:#4f9f8f}
+                        .why-interview{background:#f8fbfa;border-radius:16px;padding:0.9rem 1rem;border:1px solid #eef3f2;margin-top:1.2rem}
+                        .why-interview .title{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:#2c7a6e;margin-bottom:0.5rem;display:flex;align-items:center;gap:8px}
+                        .why-interview ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0.3rem 1rem}
+                        .why-interview ul li{font-size:0.75rem;color:#1e2f3c;display:flex;align-items:center;gap:6px}
+                        .why-interview ul li i{color:#2c7a6e;font-size:0.65rem;width:16px}
+                        .left-dark::after{display:none}
+                        .divider-light{height:2px;background:#e5eef5;width:50px;margin:0.5rem 0 1rem 0}
+                        .value-tagline{text-align:center;font-size:0.75rem;color:#9bc4bc;background:rgba(79,159,143,0.12);padding:0.5rem 0.8rem;border-radius:40px;margin:0.3rem 0 0.8rem 0;border:1px solid rgba(79,159,143,0.15)}
+                        hr.dark-divider{margin:1rem 0;border-color:rgba(255,255,255,0.06)}
+                        .profile-pic{width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,0.06);border:3px solid rgba(79,159,143,0.5);display:flex;align-items:center;justify-content:center;font-size:3.8rem;color:#6a8f9e;overflow:hidden;margin:0 auto 8px auto}
+                        .profile-pic img{width:100%;height:100%;object-fit:cover}
+                        .profile-section{text-align:center;margin-bottom:1.2rem}
+                        @media (max-width:780px){.dual-resume{flex-direction:column}.left-dark,.right-white{flex:auto;width:100%}.why-interview ul{grid-template-columns:1fr}}
+                    </style>
+                </head>
+                <body>
+                    <div class="dual-resume">
+                        ${html}
+                    </div>
+                </body>
+                </html>`;
+
+                var blob = new Blob([fullHTML], { type: 'text/html;charset=utf-8' });
+                saveAs(blob, 'Flynn_Pontino_Resume.html');
+            }
+
+            // ===== DROPDOWN HANDLERS =====
+            document.querySelectorAll('.drop-item').forEach(function(item) {
+                item.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    var format = this.dataset.format;
+                    dropdownMenu.classList.remove('show');
+                    switch (format) {
+                        case 'pdf':
+                            exportPDF();
+                            break;
+                        case 'docx':
+                            exportDOCX();
+                            break;
+                        case 'txt':
+                            exportTXT();
+                            break;
+                        case 'html':
+                            exportHTML();
+                            break;
+                    }
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>
